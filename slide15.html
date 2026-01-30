@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Applications - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/8b57bee36e46c674ef0cbaa78603aa72.webp");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Gradient Overlay */
+        .gradient-overlay {
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.2) 100%);
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Application Card Styling */
+        .app-card {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 0 12px 12px 0;
+            border-left-width: 6px;
+            transform: skewX(-12deg);
+            margin-left: -20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            background: rgba(17, 24, 39, 0.9);
+            transform: skewX(-12deg) translateX(15px);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .unskew {
+            transform: skewX(12deg);
+        }
+
+        /* Icon Container */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Decorative Elements */
+        .grid-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(36px, 6vw, 72px);
+        }
+        
+        .section-label {
+            font-size: clamp(9px, 0.9vw, 12px);
+        }
+        
+        .card-title {
+            font-size: clamp(18px, 2vw, 28px);
+        }
+        
+        .card-text {
+            font-size: clamp(10px, 1vw, 12px);
+        }
+        
+        .version-text {
+            font-size: clamp(28px, 4vw, 48px);
+        }
+        
+        @media (max-width: 1024px) {
+            .right-visual {
+                display: none !important;
+            }
+            
+            .content-left {
+                width: 100% !important;
+                padding-right: 2rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-card {
+                transform: skewX(0deg) !important;
+                margin-left: 0 !important;
+            }
+            
+            .app-card:hover {
+                transform: skewX(0deg) !important;
+            }
+            
+            .unskew {
+                transform: skewX(0deg) !important;
+            }
+            
+            .icon-box {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .chevron-indicator {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex flex-col relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="gradient-overlay"></div>
+<div class="grid-bg"></div>
+<!-- Content Layout -->
+<div class="relative z-10 w-full h-full flex items-center">
+<!-- Left Side Content List -->
+<div class="content-left w-full lg:w-1/2 h-full flex flex-col justify-center pl-6 md:pl-16 pr-6 md:pr-8 overflow-y-auto">
+<!-- Header -->
+<div class="mb-8 md:mb-12">
+<div class="flex items-center gap-3 mb-2">
+<div class="flex gap-1">
+<div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+<div class="w-2 h-2 bg-white rounded-full"></div>
+<div class="w-2 h-2 bg-red-500 rounded-full"></div>
+</div>
+<p class="tech-font text-blue-400 font-bold section-label tracking-[0.3em] uppercase">Use Cases</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter leading-tight drop-shadow-lg">
+                        REAL-WORLD <br/>
+<span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">APPLICATIONS</span>
+</h1>
+<div class="w-24 md:w-32 h-1 bg-gradient-to-r from-blue-600 to-transparent mt-4"></div>
+</div>
+<!-- Application Cards List -->
+<div class="flex flex-col gap-4 md:gap-6 w-full max-w-xl">
+<!-- Card 1: Racing Simulators -->
+<div class="app-card p-3 md:p-4 border-l-blue-500 group">
+<div class="unskew flex items-center gap-4 md:gap-6">
+<div class="icon-box group-hover:bg-blue-900/30 group-hover:border-blue-500 transition-colors shrink-0">
+<i class="fas fa-gamepad text-xl md:text-2xl text-blue-400 group-hover:text-white transition-colors"></i>
+</div>
+<div class="flex-1">
+<h3 class="racing-font card-title text-white italic mb-1 group-hover:text-blue-400 transition-colors">RACING SIMULATORS</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed group-hover:text-gray-200">
+                                    Enhanced immersion for cockpit setups using natural hand movements instead of traditional controllers or keyboards.
+                                </p>
+</div>
+<i class="chevron-indicator fas fa-chevron-right text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0"></i>
+</div>
+</div>
+<!-- Card 2: Gesture Gaming -->
+<div class="app-card p-3 md:p-4 border-l-purple-500 group">
+<div class="unskew flex items-center gap-4 md:gap-6">
+<div class="icon-box group-hover:bg-purple-900/30 group-hover:border-purple-500 transition-colors shrink-0">
+<i class="fas fa-vr-cardboard text-xl md:text-2xl text-purple-400 group-hover:text-white transition-colors"></i>
+</div>
+<div class="flex-1">
+<h3 class="racing-font card-title text-white italic mb-1 group-hover:text-purple-400 transition-colors">GESTURE GAMING</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed group-hover:text-gray-200">
+                                    Paving the way for controller-free arcade experiences in public entertainment centers and interactive kiosks.
+                                </p>
+</div>
+<i class="chevron-indicator fas fa-chevron-right text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0"></i>
+</div>
+</div>
+<!-- Card 3: Training & Accessibility -->
+<div class="app-card p-3 md:p-4 border-l-green-500 group">
+<div class="unskew flex items-center gap-4 md:gap-6">
+<div class="icon-box group-hover:bg-green-900/30 group-hover:border-green-500 transition-colors shrink-0">
+<i class="fas fa-universal-access text-xl md:text-2xl text-green-400 group-hover:text-white transition-colors"></i>
+</div>
+<div class="flex-1">
+<h3 class="racing-font card-title text-white italic mb-1 group-hover:text-green-400 transition-colors">TRAINING &amp; ACCESSIBILITY</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed group-hover:text-gray-200">
+                                    Providing accessible driving practice options for users with limited mobility or hardware constraints.
+                                </p>
+</div>
+<i class="chevron-indicator fas fa-chevron-right text-green-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Visual Context (Empty to show background car) -->
+<div class="right-visual flex-1 h-full relative hidden lg:block">
+<!-- HUD Overlay Elements on the right -->
+<div class="absolute bottom-12 right-12">
+<div class="flex flex-col items-end gap-2 opacity-60">
+<div class="flex items-center gap-2">
+<span class="tech-font text-white section-label uppercase tracking-widest">System Status</span>
+<div class="w-20 h-[2px] bg-gray-600">
+<div class="h-full bg-blue-500 w-2/3 animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="tech-font text-white section-label uppercase tracking-widest">Tracking</span>
+<div class="w-20 h-[2px] bg-gray-600">
+<div class="h-full bg-green-500 w-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 text-right">
+<p class="racing-font version-text text-white font-bold opacity-20">V.1.0</p>
+</div>
+</div>
+<!-- Decorative Circle -->
+<div class="absolute top-1/2 right-1/4 w-48 h-48 md:w-64 md:h-64 border border-blue-500/20 rounded-full flex items-center justify-center animate-[spin_10s_linear_infinite]">
+<div class="w-36 h-36 md:w-48 md:h-48 border border-white/10 rounded-full border-dashed"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

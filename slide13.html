@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Solutions Implemented</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Oswald:wght@500;700&family=Roboto:wght@400;500;900&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            display: flex;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/4e9250bb8fa752a12631cfa1bb5a2625.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Split Layout */
+        .content-panel {
+            background: rgba(10, 15, 30, 0.95);
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+            border-right: 4px solid #3B82F6;
+            position: relative;
+        }
+
+        /* Safety Striping */
+        .safety-strip {
+            height: 20px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #000,
+                #000 10px,
+                #3B82F6 10px,
+                #3B82F6 20px
+            );
+            opacity: 0.8;
+        }
+
+        /* Solution Cards */
+        .solution-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #10B981;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .solution-card:hover {
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateX(10px);
+        }
+
+        .icon-container {
+            width: 48px;
+            height: 48px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10B981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        /* Overlay Effect */
+        .blue-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+
+        /* HUD Lines */
+        .hud-line {
+            width: 100%;
+            height: 1px;
+            background: rgba(59, 130, 246, 0.4);
+            position: absolute;
+            z-index: 20;
+            top: 15%;
+            opacity: 0.5;
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(40px, 6vw, 72px);
+        }
+        
+        .section-label {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        .card-title {
+            font-size: clamp(16px, 1.8vw, 24px);
+        }
+        
+        .card-text {
+            font-size: clamp(10px, 1vw, 13px);
+            line-height: 1.5;
+        }
+        
+        .success-title {
+            font-size: clamp(28px, 4vw, 48px);
+        }
+        
+        .success-subtitle {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        @media (max-width: 768px) {
+            .content-panel {
+                width: 100% !important;
+                clip-path: none;
+                border-right: none;
+                border-bottom: 4px solid #3B82F6;
+            }
+            
+            .right-visual {
+                display: none;
+            }
+            
+            .icon-container {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .hud-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container relative">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="blue-overlay"></div>
+<!-- HUD Effect -->
+<div class="hud-line"></div>
+<!-- Left Content Panel -->
+<div class="relative z-10 w-full md:w-[740px] lg:w-[58vw] h-full content-panel flex flex-col pt-0 shadow-2xl">
+<!-- Top Safety Strip -->
+<div class="safety-strip"></div>
+<div class="px-6 md:px-16 pt-8 md:pt-10 pb-8 md:pb-12 flex flex-col h-full justify-center overflow-y-auto">
+<!-- Section Title -->
+<div class="mb-6 md:mb-8">
+<div class="flex items-center gap-3 mb-2 opacity-90">
+<i class="fas fa-check-circle text-blue-500 text-lg md:text-xl"></i>
+<p class="tech-font text-blue-400 font-bold section-label tracking-[0.2em] uppercase">Technical Resolutions</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter leading-none">
+                    SOLUTIONS <br/><span class="text-blue-500">IMPLEMENTED</span>
+</h1>
+</div>
+<!-- Solutions List -->
+<div class="flex flex-col gap-4 md:gap-5">
+<!-- Solution 1 -->
+<div class="solution-card p-3 md:p-4 rounded-r border-l-cyan-400" style="border-left-color: #22D3EE;">
+<div class="flex items-start gap-3 md:gap-5">
+<div class="icon-container shrink-0" style="background: rgba(34, 211, 238, 0.15); border-color: #22D3EE;">
+<i class="fas fa-hands text-cyan-400 text-lg md:text-xl"></i>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="racing-font card-title text-white mb-1">ITERATIVE GESTURE TESTING</h3>
+<p class="tech-font text-gray-300 card-text font-medium">
+                                Conducted extensive user testing sessions to refine hand gesture mappings, establishing intuitive tilt-based controls that feel natural and responsive for steering.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Solution 2 -->
+<div class="solution-card p-3 md:p-4 rounded-r border-l-emerald-500" style="border-left-color: #10B981;">
+<div class="flex items-start gap-3 md:gap-5">
+<div class="icon-container shrink-0" style="background: rgba(16, 185, 129, 0.15); border-color: #10B981;">
+<i class="fas fa-database text-emerald-500 text-lg md:text-xl"></i>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="racing-font card-title text-white mb-1">PERSISTENT DATA MANAGEMENT</h3>
+<p class="tech-font text-gray-300 card-text font-medium">
+                                Implemented DontDestroyOnLoad and singleton pattern to maintain hand tracking state across scene transitions, ensuring seamless gameplay continuity.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Solution 3 -->
+<div class="solution-card p-3 md:p-4 rounded-r border-l-blue-500" style="border-left-color: #3B82F6;">
+<div class="flex items-start gap-3 md:gap-5">
+<div class="icon-container shrink-0" style="background: rgba(59, 130, 246, 0.15); border-color: #3B82F6;">
+<i class="fas fa-chart-line text-blue-500 text-lg md:text-xl"></i>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="racing-font card-title text-white mb-1">NON-LINEAR STEERING CURVE</h3>
+<p class="tech-font text-gray-300 card-text font-medium">
+                                Applied exponential smoothing and dead-zone thresholds to radial steering mapping, eliminating oversteering while maintaining precision control at all speeds.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Safety Strip -->
+<div class="safety-strip mt-auto absolute bottom-0 w-full"></div>
+</div>
+<!-- Right Side Visual Elements -->
+<div class="right-visual absolute right-0 top-0 bottom-0 w-[42vw] flex flex-col items-center justify-center pointer-events-none z-10">
+<!-- Success Overlay Box -->
+<div class="bg-black bg-opacity-60 backdrop-blur-md border border-blue-500 p-6 md:p-8 rounded-lg transform rotate-[2deg] shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+<div class="flex flex-col items-center text-center">
+<i class="fas fa-rocket text-5xl md:text-6xl text-blue-500 mb-3 md:mb-4 opacity-90 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"></i>
+<h2 class="racing-font success-title text-white italic">SYSTEM <span class="text-blue-500">OPTIMIZED</span></h2>
+<p class="tech-font text-gray-300 success-subtitle mt-2 tracking-widest uppercase font-bold">Performance: <span class="text-emerald-400">Stable</span></p>
+</div>
+</div>
+<!-- Status Text Decor -->
+<div class="absolute bottom-12 md:bottom-20 right-12 md:right-20 text-right opacity-80">
+<p class="tech-font text-emerald-400 font-mono section-label mb-1">STATUS: ONLINE</p>
+<p class="tech-font text-blue-400 font-mono section-label">CONTROL: STABLE</p>
+<p class="tech-font text-blue-400 font-mono section-label">TRACKING: ACTIVE</p>
+</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Challenges Faced</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Oswald:wght@500;700&family=Roboto:wght@400;500;900&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://www.genspark.ai/image_placeholder.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Split Layout */
+        .content-panel {
+            background: rgba(10, 10, 10, 0.95);
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+            border-right: 4px solid #F59E0B;
+            position: relative;
+        }
+
+        /* Hazard Striping */
+        .hazard-strip {
+            height: 20px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #000,
+                #000 10px,
+                #F59E0B 10px,
+                #F59E0B 20px
+            );
+            opacity: 0.8;
+        }
+
+        /* Challenge Cards */
+        .challenge-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #EF4444;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .challenge-card:hover {
+            background: rgba(239, 68, 68, 0.1);
+            transform: translateX(10px);
+        }
+
+        .icon-container {
+            width: 48px;
+            height: 48px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #EF4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        /* Rain Overlay Effect */
+        .rain-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        /* Scanline */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(245, 158, 11, 0.3);
+            position: absolute;
+            z-index: 20;
+            top: 50%;
+            opacity: 0.5;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(40px, 6vw, 72px);
+        }
+        
+        .section-label {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        .card-title {
+            font-size: clamp(16px, 1.8vw, 24px);
+        }
+        
+        .card-text {
+            font-size: clamp(10px, 1vw, 13px);
+            line-height: 1.5;
+        }
+        
+        .warning-title {
+            font-size: clamp(28px, 4vw, 48px);
+        }
+        
+        .warning-subtitle {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        @media (max-width: 768px) {
+            .content-panel {
+                width: 100% !important;
+                clip-path: none;
+                border-right: none;
+                border-bottom: 4px solid #F59E0B;
+            }
+            
+            .right-visual {
+                display: none;
+            }
+            
+            .icon-container {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex relative">
+<!-- Background Image -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="rain-overlay"></div>
+<!-- Scanline Effect (Simulating tech difficulty) -->
+<div class="scanline"></div>
+<!-- Left Content Panel -->
+<div class="relative z-10 w-full md:w-[700px] lg:w-[55vw] h-full content-panel flex flex-col pt-0 shadow-2xl">
+<!-- Top Hazard Strip -->
+<div class="hazard-strip"></div>
+<div class="px-6 md:px-16 pt-8 md:pt-10 pb-8 md:pb-12 flex flex-col h-full justify-center overflow-y-auto">
+<!-- Section Title -->
+<div class="mb-6 md:mb-10">
+<div class="flex items-center gap-3 mb-2 opacity-90">
+<i class="fas fa-triangle-exclamation text-yellow-500 text-lg md:text-xl animate-pulse"></i>
+<p class="tech-font text-yellow-500 font-bold section-label tracking-[0.2em] uppercase">Development Obstacles</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter leading-none">
+                    CHALLENGES <br/><span class="text-red-500">FACED</span>
+</h1>
+</div>
+<!-- Challenges List -->
+<div class="flex flex-col gap-4 md:gap-6">
+<!-- Challenge 1 -->
+<div class="challenge-card p-4 md:p-5 rounded-r">
+<div class="flex items-start gap-3 md:gap-5">
+<div class="icon-container shrink-0">
+<i class="fas fa-hand-pointer text-red-500 text-lg md:text-xl"></i>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="racing-font card-title text-white mb-1">MAPPING HAND GESTURES</h3>
+<p class="tech-font text-gray-300 card-text font-medium">
+                                Finding the correct hand gesture mapping for respective motion controls proved challenging, requiring extensive testing to achieve intuitive and accurate steering responses.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Challenge 2 -->
+<div class="challenge-card p-4 md:p-5 rounded-r border-l-yellow-500" style="border-left-color: #F59E0B;">
+<div class="flex items-start gap-3 md:gap-5">
+<div class="icon-container shrink-0" style="background: rgba(245, 158, 11, 0.2); border-color: #F59E0B;">
+<i class="fas fa-layer-group text-yellow-500 text-lg md:text-xl"></i>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="racing-font card-title text-white mb-1">UNITY SCENE SWITCHING</h3>
+<p class="tech-font text-gray-300 card-text font-medium">
+                                Switching between multiple Unity scenes while maintaining hand tracking state and game continuity created complexity in scene management and data persistence.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Challenge 3 -->
+<div class="challenge-card p-4 md:p-5 rounded-r border-l-orange-500" style="border-left-color: #F97316;">
+<div class="flex items-start gap-3 md:gap-5">
+<div class="icon-container shrink-0" style="background: rgba(249, 115, 22, 0.2); border-color: #F97316;">
+<i class="fas fa-car-crash text-orange-500 text-lg md:text-xl"></i>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="racing-font card-title text-white mb-1">STEERING STABILITY</h3>
+<p class="tech-font text-gray-300 card-text font-medium">
+                                Mapping linear hand coordinates to a radial steering axis resulted in oversteering and loss of control at high speeds.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Hazard Strip -->
+<div class="hazard-strip mt-auto absolute bottom-0 w-full"></div>
+</div>
+<!-- Right Side Visual Elements -->
+<div class="right-visual absolute right-0 top-0 bottom-0 w-[45vw] flex flex-col items-center justify-center pointer-events-none z-10">
+<!-- Warning Overlay Box -->
+<div class="bg-black bg-opacity-60 backdrop-blur-sm border border-red-500 p-6 md:p-8 rounded-lg transform rotate-[-2deg]">
+<div class="flex flex-col items-center text-center">
+<i class="fas fa-bug text-5xl md:text-6xl text-red-500 mb-3 md:mb-4 opacity-80"></i>
+<h2 class="racing-font warning-title text-white italic">CRITICAL <span class="text-red-500">ISSUES</span></h2>
+<p class="tech-font text-gray-400 warning-subtitle mt-2 tracking-widest uppercase">Debugging in Progress...</p>
+</div>
+</div>
+<!-- Glitch Text Decor -->
+<div class="absolute bottom-12 md:bottom-20 right-12 md:right-20 text-right opacity-60">
+<p class="tech-font text-red-500 font-mono section-label">ERR_CODE: 0x4B2</p>
+<p class="tech-font text-red-500 font-mono section-label">FRAME_DROP_DETECTED</p>
+</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

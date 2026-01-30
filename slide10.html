@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Computer Vision Pipeline</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500;900&amp;family=Orbitron:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/94c164966136d6c0be7c84a8eb063645.webp");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .digital-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Timeline Styling */
+        .timeline-track {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(59, 130, 246, 0.2);
+            z-index: 1;
+        }
+        
+        .stage-card {
+            background-color: rgba(10, 10, 20, 0.85);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            position: relative;
+            width: 260px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+        }
+        
+        .stage-card:hover {
+            border-color: rgba(59, 130, 246, 0.8);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.4);
+            background-color: rgba(15, 23, 42, 0.95);
+        }
+
+        .stage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #3B82F6;
+            opacity: 0.5;
+        }
+        
+        .stage-card:hover::before {
+            opacity: 1;
+            box-shadow: 0 0 10px #3B82F6;
+        }
+
+        .stage-number {
+            position: absolute;
+            top: -15px;
+            right: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 60px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 0;
+        }
+
+        .icon-hex {
+            width: 70px;
+            height: 80px;
+            background-color: rgba(0, 0, 0, 0.5);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Connecting Dots on Timeline */
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #000;
+            border: 2px solid #3B82F6;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: -36px; 
+            transform: translateX(-50%);
+            z-index: 5;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        .arrow-next {
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.2);
+            font-size: 24px;
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(32px, 5vw, 60px);
+        }
+        
+        .section-label {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        .card-title {
+            font-size: clamp(16px, 1.8vw, 24px);
+        }
+        
+        .card-text {
+            font-size: clamp(10px, 1vw, 12px);
+        }
+        
+        .badge-text {
+            font-size: clamp(8px, 0.8vw, 10px);
+        }
+        
+        .stage-number {
+            font-size: clamp(40px, 6vw, 60px) !important;
+        }
+        
+        @media (max-width: 1200px) {
+            .stage-card {
+                width: 220px;
+                height: 280px;
+            }
+            
+            .icon-hex {
+                width: 60px;
+                height: 70px;
+            }
+            
+            .arrow-next {
+                right: -20px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .cards-container {
+                flex-direction: column !important;
+                gap: 2rem !important;
+                overflow-y: auto;
+                max-height: calc(100vh - 250px);
+            }
+            
+            .stage-card {
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+                min-height: 250px;
+            }
+            
+            .arrow-next {
+                display: none;
+            }
+            
+            .connecting-line {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .footer-stats {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex flex-col relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="absolute inset-0 bg-black bg-opacity-70"></div>
+<!-- Grid Overlay -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: 
+        linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;">
+</div>
+<!-- Header -->
+<div class="relative z-10 w-full pt-6 md:pt-8 px-6 md:px-12 flex flex-col md:flex-row justify-between md:items-end gap-3 md:gap-0 border-b border-gray-800 pb-4 md:pb-6 mb-6 md:mb-8">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<div class="flex gap-1">
+<div class="w-2 h-5 md:h-6 bg-red-600 skew-x-[-20deg]"></div>
+<div class="w-2 h-5 md:h-6 bg-white skew-x-[-20deg]"></div>
+<div class="w-2 h-5 md:h-6 bg-blue-600 skew-x-[-20deg]"></div>
+</div>
+<p class="tech-font text-blue-400 font-bold section-label tracking-[0.3em] uppercase">Architecture Flow</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter">
+                CV <span class="text-transparent" style="-webkit-text-stroke: 1px #3B82F6;">PIPELINE</span>
+</h1>
+</div>
+<div class="flex flex-col md:items-end">
+<div class="flex items-center gap-2 text-red-500 mb-1">
+<i class="fas fa-satellite-dish animate-pulse"></i>
+<span class="digital-font section-label">LIVE FEED</span>
+</div>
+<p class="tech-font text-gray-500 badge-text">PROCESSING TIME: 12ms</p>
+</div>
+</div>
+<!-- Main Timeline Content -->
+<div class="flex-1 relative z-10 flex items-center justify-center w-full px-4 md:px-8 pb-8 md:pb-12">
+<!-- Connecting Line -->
+<div class="connecting-line absolute top-[48%] left-12 md:left-20 right-12 md:right-20 h-1 bg-gray-800 z-0">
+<div class="h-full bg-blue-600 w-full opacity-30"></div>
+</div>
+<!-- Cards Container -->
+<div class="cards-container w-full flex flex-col lg:flex-row justify-between items-center max-w-[1150px] relative z-10 gap-4 lg:gap-0">
+<!-- Stage 1 -->
+<div class="relative group">
+<div class="stage-card p-5 md:p-6">
+<span class="stage-number">01</span>
+<div class="icon-hex">
+<i class="fas fa-hand-sparkles text-2xl md:text-3xl text-blue-400"></i>
+</div>
+<div class="text-center mt-2">
+<h3 class="racing-font card-title text-white mb-2 italic">LANDMARK DETECTION</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed">
+                            Extracts 21 hand keypoints (x,y,z) using MediaPipe hands model from raw RGB frames.
+                        </p>
+</div>
+<div class="mt-auto border-t border-gray-800 pt-3 flex justify-between items-center">
+<span class="badge-text text-blue-500 font-mono">INPUT: RGB</span>
+<i class="fas fa-check-circle text-green-500 text-xs"></i>
+</div>
+</div>
+<div class="arrow-next"><i class="fas fa-chevron-right"></i></div>
+</div>
+<!-- Stage 2 -->
+<div class="relative group">
+<div class="stage-card p-5 md:p-6" style="border-left-color: #8B5CF6;">
+<span class="stage-number">02</span>
+<div class="icon-hex" style="border-color: rgba(139, 92, 246, 0.3);">
+<i class="fas fa-wave-square text-2xl md:text-3xl text-purple-400"></i>
+</div>
+<div class="text-center mt-2">
+<h3 class="racing-font card-title text-white mb-2 italic">GESTURE SMOOTHING</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed">
+                           Uses time-based smoothing to reduce sudden hand movement noise and improve control accuracy.
+                        </p>
+</div>
+<div class="mt-auto border-t border-gray-800 pt-3 flex justify-between items-center">
+<span class="badge-text text-purple-500 font-mono">FILTER: EMA</span>
+<i class="fas fa-filter text-purple-500 text-xs"></i>
+</div>
+</div>
+<div class="arrow-next"><i class="fas fa-chevron-right"></i></div>
+</div>
+<!-- Stage 3 -->
+<div class="relative group">
+<div class="stage-card p-5 md:p-6" style="border-left-color: #10B981;">
+<span class="stage-number">03</span>
+<div class="icon-hex" style="border-color: rgba(16, 185, 129, 0.3);">
+<i class="fas fa-compass text-2xl md:text-3xl text-green-400"></i>
+</div>
+<div class="text-center mt-2">
+<h3 class="racing-font card-title text-white mb-2 italic">VECTOR MAPPING</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed">
+                            Translates hand tilt angle to steering value (-1 to 1) and depth to acceleration force.
+                        </p>
+</div>
+<div class="mt-auto border-t border-gray-800 pt-3 flex justify-between items-center">
+<span class="badge-text text-green-500 font-mono">MAP: LINEAR</span>
+<i class="fas fa-exchange-alt text-green-500 text-xs"></i>
+</div>
+</div>
+<div class="arrow-next"><i class="fas fa-chevron-right"></i></div>
+</div>
+<!-- Stage 4 -->
+<div class="relative group">
+<div class="stage-card p-5 md:p-6" style="border-left-color: #EF4444;">
+<span class="stage-number">04</span>
+<div class="icon-hex" style="border-color: rgba(239, 68, 68, 0.3);">
+<i class="fas fa-bolt text-2xl md:text-3xl text-red-500"></i>
+</div>
+<div class="text-center mt-2">
+<h3 class="racing-font card-title text-white mb-2 italic">LOW-LATENCY CONTROL</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed">
+                            Sends finalized control packets to game engine physics update loop instantly.
+                        </p>
+</div>
+<div class="mt-auto border-t border-gray-800 pt-3 flex justify-between items-center">
+<span class="badge-text text-red-500 font-mono">OUT: PHYSICS</span>
+<i class="fas fa-gamepad text-red-500 text-xs"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="footer-stats absolute bottom-4 md:bottom-6 left-6 md:left-12 right-6 md:right-12 flex justify-between items-center text-gray-600 badge-text font-mono border-t border-gray-800 pt-3 md:pt-4">
+<p>FRAME PROCESS: PRE-PROCESSING &gt; INFERENCE &gt; POST-PROCESSING</p>
+<div class="flex gap-4">
+<span>CPU: 12%</span>
+<span>GPU: 34%</span>
+<span>MEM: 120MB</span>
+</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

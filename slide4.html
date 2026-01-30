@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="stylesheet" href="common.css">
+
+<title>Inspiration &amp; Motivation - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/4477cc2a2ec20ffa07b90faa7095be84.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .body-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* UI Components */
+        .glass-panel {
+            background-color: rgba(10, 10, 10, 0.94);
+            border-right: 4px solid #3B82F6;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+        }
+        
+        .card-motivation {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #EF4444;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-motivation:hover {
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+
+        .skew-title {
+            transform: skewX(-15deg);
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(36px, 5vw, 60px);
+        }
+        
+        .section-label {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        .card-title {
+            font-size: clamp(16px, 1.8vw, 24px);
+        }
+        
+        .card-text {
+            font-size: clamp(12px, 1.1vw, 16px);
+        }
+        
+        .track-label {
+            font-size: clamp(18px, 2.5vw, 28px);
+        }
+        
+        .track-subtitle {
+            font-size: clamp(10px, 0.9vw, 12px);
+        }
+        
+        @media (max-width: 768px) {
+            .glass-panel {
+                width: 100% !important;
+                clip-path: none;
+                border-right: none;
+                border-bottom: 4px solid #3B82F6;
+            }
+            
+            .decorative-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<!-- Left Overlay Content -->
+<div class="relative z-10 w-full md:w-[680px] lg:w-[53vw] h-full glass-panel pl-8 md:pl-16 pr-8 md:pr-20 py-8 md:py-10 flex flex-col shadow-2xl">
+<!-- Section Title -->
+<div class="mb-6 md:mb-8">
+<div class="flex items-center gap-3 mb-2 opacity-80">
+<span class="w-8 md:w-10 h-1 bg-blue-500 skew-x-[-20deg]"></span>
+<p class="body-font text-gray-400 font-bold section-label tracking-widest uppercase">Project Background</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter skew-title leading-tight">
+                    INSPIRATION &amp;<br/><span class="text-blue-500">MOTIVATION</span>
+</h1>
+</div>
+<!-- Content Cards Container -->
+<div class="flex flex-col gap-4 md:gap-5 flex-1 justify-center overflow-y-auto">
+<!-- Motivation Block 1 -->
+<div class="card-motivation p-4 md:p-5 rounded-r-lg">
+<div class="flex items-start gap-3 md:gap-4">
+<div class="w-10 h-10 md:w-12 md:h-12 rounded bg-red-600 flex-shrink-0 flex items-center justify-center shadow-[0_0_10px_rgba(239,68,68,0.4)]">
+<i class="fas fa-steering-wheel text-white text-lg md:text-xl"></i>
+</div>
+<div>
+<h3 class="racing-font card-title text-white mb-1">REAL-WORLD INTUITION</h3>
+<p class="body-font text-gray-300 card-text leading-relaxed font-medium">
+                            Mimicking natural driving habits. The goal is to translate physical steering gestures into a digital environment without the need for learning complex key binds.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Motivation Block 2 -->
+<div class="card-motivation p-4 md:p-5 rounded-r-lg border-l-blue-500" style="border-left-color: #3B82F6;">
+<div class="flex items-start gap-3 md:gap-4">
+<div class="w-10 h-10 md:w-12 md:h-12 rounded bg-blue-600 flex-shrink-0 flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.4)]">
+<i class="fas fa-universal-access text-white text-lg md:text-xl"></i>
+</div>
+<div>
+<h3 class="racing-font card-title text-white mb-1">ACCESSIBILITY &amp; INCLUSIVITY</h3>
+<p class="body-font text-gray-300 card-text leading-relaxed font-medium">
+                            Gaming should be for everyone. By removing the need for expensive steering wheels or controllers, we lower the barrier to entry for immersive racing.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Motivation Block 3 -->
+<div class="card-motivation p-4 md:p-5 rounded-r-lg border-l-purple-500" style="border-left-color: #A855F7;">
+<div class="flex items-start gap-3 md:gap-4">
+<div class="w-10 h-10 md:w-12 md:h-12 rounded bg-purple-600 flex-shrink-0 flex items-center justify-center shadow-[0_0_10px_rgba(168,85,247,0.4)]">
+<i class="fas fa-eye text-white text-lg md:text-xl"></i>
+</div>
+<div>
+<h3 class="racing-font card-title text-white mb-1">PUSHING TECH BOUNDARIES</h3>
+<p class="body-font text-gray-300 card-text leading-relaxed font-medium">
+                            Exploring the limits of Computer Vision in real-time gaming. transforming a simple webcam into a high-latency input device.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Footer -->
+<div class="mt-auto pt-4 md:pt-6 border-t border-gray-800 flex items-center gap-2 text-gray-500 section-label uppercase tracking-wider">
+<i class="fas fa-flag-checkered text-blue-500"></i>
+<span>DriveSense Engineering Project</span>
+</div>
+</div>
+<!-- Decorative Right Side Elements (HUD style) -->
+<div class="decorative-right absolute right-6 md:right-12 bottom-6 md:bottom-12 flex flex-col items-end gap-1 opacity-80">
+<div class="flex items-center gap-2">
+<span class="text-white racing-font track-label">TRACK</span>
+<span class="text-red-500 racing-font track-label">02</span>
+</div>
+<div class="h-1 w-32 md:w-48 bg-gradient-to-r from-transparent to-red-600"></div>
+<p class="text-gray-400 track-subtitle body-font mt-1">CURVED CIRCUIT // AERIAL VIEW</p>
+</div>
+<!-- Overlay grid texture -->
+<div class="absolute inset-0 pointer-events-none opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

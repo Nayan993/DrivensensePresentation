@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tech Stack - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/a9ff664339650e91707e7c019ba33fa7.webp");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Tech Badge Card */
+        .tech-badge {
+            background: rgba(17, 24, 39, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            clip-path: polygon(
+                20px 0, 100% 0, 
+                100% calc(100% - 20px), calc(100% - 20px) 100%, 
+                0 100%, 0 20px
+            );
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(12px);
+        }
+
+        .tech-badge:hover {
+            transform: translateY(-5px);
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .tech-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, currentColor, transparent);
+            opacity: 0.5;
+        }
+
+        /* Specific Color Themes for Cards */
+        .theme-python { color: #3B82F6; border-color: rgba(59, 130, 246, 0.3); }
+        .theme-python:hover { border-color: #3B82F6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); }
+        
+        .theme-unity { color: #EF4444; border-color: rgba(239, 68, 68, 0.3); }
+        .theme-unity:hover { border-color: #EF4444; box-shadow: 0 0 30px rgba(239, 68, 68, 0.2); }
+        
+        .theme-hardware { color: #10B981; border-color: rgba(16, 185, 129, 0.3); }
+        .theme-hardware:hover { border-color: #10B981; box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); }
+
+        /* HUD Lines */
+        .scan-line {
+            width: 100%;
+            height: 2px;
+            background: rgba(59, 130, 246, 0.2);
+            position: absolute;
+            animation: scan 4s linear infinite;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Decorative Background Grid */
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(32px, 5vw, 60px);
+        }
+        
+        .section-label {
+            font-size: clamp(9px, 0.9vw, 12px);
+        }
+        
+        .card-title {
+            font-size: clamp(24px, 2.8vw, 36px);
+        }
+        
+        .card-text {
+            font-size: clamp(11px, 1.1vw, 14px);
+        }
+        
+        .badge-text {
+            font-size: clamp(10px, 0.9vw, 12px);
+        }
+        
+        .footer-text {
+            font-size: clamp(8px, 0.8vw, 10px);
+        }
+        
+        @media (max-width: 1024px) {
+            .tech-cards-container {
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+                overflow-y: auto;
+            }
+            
+            .tech-badge {
+                width: 100% !important;
+                max-width: 500px;
+                height: auto !important;
+                min-height: 300px;
+                margin: 0 auto;
+            }
+            
+            .scan-line {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bottom-hud {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex flex-col relative overflow-hidden">
+<!-- Background Layer -->
+<div class="absolute inset-0 bg-image opacity-40"></div>
+<div class="absolute inset-0 bg-black bg-opacity-80"></div>
+<div class="absolute inset-0 bg-grid opacity-30"></div>
+<!-- HUD Scan Line -->
+<div class="scan-line"></div>
+<!-- Top HUD Bar -->
+<div class="relative z-10 w-full pt-6 md:pt-8 px-6 md:px-12 pb-3 md:pb-4 flex flex-col md:flex-row justify-between md:items-end gap-3 md:gap-0 border-b border-gray-800">
+<div>
+<div class="flex items-center gap-2 mb-1 opacity-80">
+<span class="w-8 md:w-12 h-1 bg-blue-500 skew-x-[-20deg]"></span>
+<p class="tech-font text-gray-400 font-bold section-label tracking-[0.3em] uppercase">System Specifications</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter">
+                TECH <span class="text-transparent" style="-webkit-text-stroke: 1px #3B82F6;">STACK</span>
+</h1>
+</div>
+<!-- Top Right Tech Stats -->
+<div class="flex flex-col md:items-end gap-1">
+<div class="flex items-center gap-2">
+<i class="fas fa-signal text-green-500 text-xs animate-pulse"></i>
+<p class="tech-font text-green-500 section-label font-mono">SIGNAL: STRONG</p>
+</div>
+<div class="flex gap-1">
+<div class="w-6 md:w-8 h-1 bg-white opacity-20"></div>
+<div class="w-6 md:w-8 h-1 bg-white opacity-40"></div>
+<div class="w-6 md:w-8 h-1 bg-white opacity-80"></div>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 relative z-10 flex items-center justify-center p-6 md:p-12 tech-cards-container gap-4 md:gap-6 lg:gap-8">
+<!-- Card 1: Python / Vision -->
+<div class="tech-badge theme-python w-full md:w-1/3 h-auto md:h-[420px] flex flex-col items-center justify-between p-6 md:p-8 group">
+<div class="absolute top-3 md:top-4 right-3 md:right-4 text-blue-500/30 font-mono badge-text">01 // BACKEND</div>
+<div class="mt-4 relative">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-dashed border-blue-500/30 flex items-center justify-center group-hover:border-blue-500 group-hover:rotate-180 transition-all duration-700"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<i class="fa-brands fa-python text-4xl md:text-5xl text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"></i>
+</div>
+</div>
+<div class="text-center mt-2">
+<h2 class="racing-font card-title text-white mb-1 italic">PYTHON CORE</h2>
+<div class="w-10 md:w-12 h-1 bg-blue-500 mx-auto mb-3 md:mb-4"></div>
+<p class="tech-font text-gray-300 card-text mb-3 md:mb-4 leading-relaxed px-2">
+                    The brain of DriveSense. Handles real-time gesture processing and data mapping.
+                </p>
+</div>
+<div class="w-full space-y-2">
+<div class="flex justify-between items-center bg-blue-900/20 px-3 py-2 rounded border border-blue-500/20">
+<span class="badge-text text-blue-300 font-bold">OPENCV</span>
+<i class="fas fa-eye text-blue-400 text-xs"></i>
+</div>
+<div class="flex justify-between items-center bg-blue-900/20 px-3 py-2 rounded border border-blue-500/20">
+<span class="badge-text text-blue-300 font-bold">MEDIAPIPE</span>
+<i class="fas fa-hand-paper text-blue-400 text-xs"></i>
+</div>
+</div>
+</div>
+<!-- Card 2: Unity / Game Engine -->
+<div class="tech-badge theme-unity w-full md:w-1/3 h-auto md:h-[420px] flex flex-col items-center justify-between p-6 md:p-8 group">
+<div class="absolute top-3 md:top-4 right-3 md:right-4 text-red-500/30 font-mono badge-text">02 // ENGINE</div>
+<div class="mt-4 relative">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-dashed border-red-500/30 flex items-center justify-center group-hover:border-red-500 group-hover:rotate-[-180deg] transition-all duration-700"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<i class="fa-brands fa-unity text-4xl md:text-5xl text-white drop-shadow-[0_0_10px_rgba(239,68,68,0.8)]"></i>
+</div>
+</div>
+<div class="text-center mt-2">
+<h2 class="racing-font card-title text-white mb-1 italic">UNITY 3D</h2>
+<div class="w-10 md:w-12 h-1 bg-red-500 mx-auto mb-3 md:mb-4"></div>
+<p class="tech-font text-gray-300 card-text mb-3 md:mb-4 leading-relaxed px-2">
+                    High-fidelity graphics rendering and realistic physics simulation for immersive racing.
+                </p>
+</div>
+<div class="w-full space-y-2">
+<div class="flex justify-between items-center bg-red-900/20 px-3 py-2 rounded border border-red-500/20">
+<span class="badge-text text-red-300 font-bold">C# SCRIPTING</span>
+<i class="fas fa-code text-red-400 text-xs"></i>
+</div>
+<div class="flex justify-between items-center bg-red-900/20 px-3 py-2 rounded border border-red-500/20">
+<span class="badge-text text-red-300 font-bold">PHYSICS ENGINE</span>
+<i class="fas fa-car text-red-400 text-xs"></i>
+</div>
+</div>
+</div>
+<!-- Card 3: Webcam / Hardware -->
+<div class="tech-badge theme-hardware w-full md:w-1/3 h-auto md:h-[420px] flex flex-col items-center justify-between p-6 md:p-8 group">
+<div class="absolute top-3 md:top-4 right-3 md:right-4 text-emerald-500/30 font-mono badge-text">03 // INPUT</div>
+<div class="mt-4 relative">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-dashed border-emerald-500/30 flex items-center justify-center group-hover:border-emerald-500 group-hover:scale-110 transition-all duration-500"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<i class="fas fa-video text-3xl md:text-4xl text-white drop-shadow-[0_0_10px_rgba(16,185,129,0.8)]"></i>
+</div>
+</div>
+<div class="text-center mt-2">
+<h2 class="racing-font card-title text-white mb-1 italic">HARDWARE</h2>
+<div class="w-10 md:w-12 h-1 bg-emerald-500 mx-auto mb-3 md:mb-4"></div>
+<p class="tech-font text-gray-300 card-text mb-3 md:mb-4 leading-relaxed px-2">
+                    Standard webcam input processed in real-time. No specialized sensors required.
+                </p>
+</div>
+<div class="w-full space-y-2">
+<div class="flex justify-between items-center bg-emerald-900/20 px-3 py-2 rounded border border-emerald-500/20">
+<span class="badge-text text-emerald-300 font-bold">WEBCAM</span>
+<i class="fas fa-camera text-emerald-400 text-xs"></i>
+</div>
+<div class="flex justify-between items-center bg-emerald-900/20 px-3 py-2 rounded border border-emerald-500/20">
+<span class="badge-text text-emerald-300 font-bold">LOW LATENCY</span>
+<i class="fas fa-stopwatch text-emerald-400 text-xs"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom HUD Elements -->
+<div class="bottom-hud absolute bottom-4 md:bottom-6 left-6 md:left-12 right-6 md:right-12 flex justify-between items-center opacity-60">
+<div class="flex gap-1">
+<div class="h-2 w-12 md:w-16 bg-gray-600 skew-x-[-20deg]"></div>
+<div class="h-2 w-6 md:w-8 bg-blue-600 skew-x-[-20deg]"></div>
+<div class="h-2 w-3 md:w-4 bg-red-600 skew-x-[-20deg]"></div>
+</div>
+<div class="tech-font footer-text text-gray-400 tracking-[0.5em] uppercase hidden md:block">
+            DriveSense Technology Architecture v1.0
+        </div>
+<div class="flex gap-1 transform rotate-180">
+<div class="h-2 w-12 md:w-16 bg-gray-600 skew-x-[-20deg]"></div>
+<div class="h-2 w-6 md:w-8 bg-blue-600 skew-x-[-20deg]"></div>
+<div class="h-2 w-3 md:w-4 bg-red-600 skew-x-[-20deg]"></div>
+</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

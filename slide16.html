@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Future Scope - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/3f9dd7a0b250b009613fa4e3baa4e802.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Solid Overlay */
+        .solid-overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Application Card Styling */
+        .app-card {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 0 12px 12px 0;
+            border-left-width: 6px;
+            transform: skewX(-12deg);
+            margin-left: -20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            background: rgba(17, 24, 39, 0.9);
+            transform: skewX(-12deg) translateX(15px);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .unskew {
+            transform: skewX(12deg);
+        }
+
+        /* Icon Container */
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(36px, 6vw, 72px);
+        }
+        
+        .section-label {
+            font-size: clamp(9px, 0.9vw, 12px);
+        }
+        
+        .card-title {
+            font-size: clamp(18px, 2vw, 28px);
+        }
+        
+        .card-text {
+            font-size: clamp(10px, 1vw, 12px);
+        }
+        
+        .version-text {
+            font-size: clamp(28px, 4vw, 48px);
+        }
+        
+        @media (max-width: 1024px) {
+            .right-visual {
+                display: none !important;
+            }
+            
+            .content-left {
+                width: 100% !important;
+                padding-right: 2rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-card {
+                transform: skewX(0deg) !important;
+                margin-left: 0 !important;
+            }
+            
+            .app-card:hover {
+                transform: skewX(0deg) !important;
+            }
+            
+            .unskew {
+                transform: skewX(0deg) !important;
+            }
+            
+            .icon-box {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .chevron-indicator {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex flex-col relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="solid-overlay"></div>
+<!-- Content Layout -->
+<div class="relative z-10 w-full h-full flex items-center">
+<!-- Left Side Content List -->
+<div class="content-left w-full lg:w-1/2 h-full flex flex-col justify-center pl-6 md:pl-16 pr-6 md:pr-8 overflow-y-auto">
+<!-- Header -->
+<div class="mb-8 md:mb-10">
+<div class="flex items-center gap-3 mb-2">
+<div class="flex gap-1">
+<div class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></div>
+<div class="w-2 h-2 bg-white rounded-full"></div>
+<div class="w-2 h-2 bg-cyan-500 rounded-full"></div>
+</div>
+<p class="tech-font text-cyan-400 font-bold section-label tracking-[0.3em] uppercase">Roadmap</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter leading-tight drop-shadow-lg">
+                        FUTURE <br/>
+<span class="text-transparent" style="-webkit-text-stroke: 1px #fff; color: transparent;">SCOPE</span>
+</h1>
+<!-- Solid line -->
+<div class="w-24 md:w-32 h-1 bg-cyan-500 mt-4"></div>
+</div>
+<!-- Feature Cards List -->
+<div class="flex flex-col gap-4 md:gap-5 w-full max-w-xl">
+<!-- Card 1: Two-Hand Steering -->
+<div class="app-card p-3 md:p-4 border-l-pink-500 group">
+<div class="unskew flex items-center gap-4 md:gap-6">
+<div class="icon-box group-hover:bg-pink-900/30 group-hover:border-pink-500 transition-colors shrink-0">
+<i class="fas fa-hands-holding-circle text-xl md:text-2xl text-pink-400 group-hover:text-white transition-colors"></i>
+</div>
+<div class="flex-1">
+<h3 class="racing-font card-title text-white italic mb-1 group-hover:text-pink-400 transition-colors">ADVANCED GESTURES</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed group-hover:text-gray-200">
+                                    Implementing two-hand tracking for realistic steering wheel simulation and complex maneuvers like gear shifting.
+                                </p>
+</div>
+<i class="chevron-indicator fas fa-chevron-right text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0"></i>
+</div>
+</div>
+<!-- Card 2: Multiplayer -->
+<div class="app-card p-3 md:p-4 border-l-cyan-500 group">
+<div class="unskew flex items-center gap-4 md:gap-6">
+<div class="icon-box group-hover:bg-cyan-900/30 group-hover:border-cyan-500 transition-colors shrink-0">
+<i class="fas fa-users text-xl md:text-2xl text-cyan-400 group-hover:text-white transition-colors"></i>
+</div>
+<div class="flex-1">
+<h3 class="racing-font card-title text-white italic mb-1 group-hover:text-cyan-400 transition-colors">MULTIPLAYER RACING</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed group-hover:text-gray-200">
+                                    Enabling real-time competitive racing modes over local networks to challenge friends and global players.
+                                </p>
+</div>
+<i class="chevron-indicator fas fa-chevron-right text-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0"></i>
+</div>
+</div>
+<!-- Card 3: VR Integration -->
+<div class="app-card p-3 md:p-4 border-l-purple-500 group">
+<div class="unskew flex items-center gap-4 md:gap-6">
+<div class="icon-box group-hover:bg-purple-900/30 group-hover:border-purple-500 transition-colors shrink-0">
+<i class="fas fa-vr-cardboard text-xl md:text-2xl text-purple-400 group-hover:text-white transition-colors"></i>
+</div>
+<div class="flex-1">
+<h3 class="racing-font card-title text-white italic mb-1 group-hover:text-purple-400 transition-colors">VR INTEGRATION</h3>
+<p class="tech-font text-gray-400 card-text leading-relaxed group-hover:text-gray-200">
+                                    Porting the experience to Virtual Reality headsets for the ultimate immersive cockpit feel using gesture interaction.
+                                </p>
+</div>
+<i class="chevron-indicator fas fa-chevron-right text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Visual Context -->
+<div class="right-visual flex-1 h-full relative hidden lg:block">
+<!-- HUD Overlay Elements on the right -->
+<div class="absolute bottom-12 right-12">
+<div class="flex flex-col items-end gap-2 opacity-60">
+<div class="flex items-center gap-2">
+<span class="tech-font text-white section-label uppercase tracking-widest">Expansion</span>
+<div class="w-20 h-[2px] bg-gray-600">
+<div class="h-full bg-pink-500 w-1/4 animate-pulse"></div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="tech-font text-white section-label uppercase tracking-widest">Dev Status</span>
+<div class="w-20 h-[2px] bg-gray-600">
+<div class="h-full bg-cyan-500 w-1/2"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 text-right">
+<p class="racing-font version-text text-white font-bold opacity-20">V.2.0</p>
+</div>
+</div>
+<!-- Decorative HUD Circle -->
+<div class="absolute top-1/2 right-1/4 w-56 h-56 md:w-72 md:h-72 border border-cyan-500/20 rounded-full flex items-center justify-center animate-[spin_12s_linear_infinite]">
+<div class="w-40 h-40 md:w-56 md:h-56 border border-pink-500/10 rounded-full border-dashed"></div>
+</div>
+<!-- Center point -->
+<div class="absolute top-1/2 right-1/4 w-2 h-2 bg-white rounded-full opacity-50 shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

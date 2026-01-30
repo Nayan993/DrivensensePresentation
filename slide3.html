@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<link rel="stylesheet" href="common.css">
+
+<title>Introduction - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/8fa666905c7af93ccac1f167971e6e3a.webp");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .body-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* UI Components */
+        .glass-panel {
+            background-color: rgba(10, 10, 10, 0.92);
+            border-right: 4px solid #EF4444;
+            clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+        }
+        
+        .card-vs {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #4B5563;
+            transition: all 0.3s ease;
+        }
+        .card-vs.active {
+            background-color: rgba(59, 130, 246, 0.15);
+            border-left: 4px solid #3B82F6;
+        }
+
+        .skew-title {
+            transform: skewX(-15deg);
+        }
+        .unskew {
+            transform: skewX(15deg);
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="absolute inset-0 bg-black bg-opacity-30"></div> <!-- Dim background -->
+<!-- Left Overlay Content -->
+<div class="relative z-10 w-[640px] h-full glass-panel pl-16 pr-24 py-12 flex flex-col justify-center shadow-2xl">
+<!-- Section Title -->
+<div class="mb-10">
+<div class="flex items-center gap-3 mb-2 opacity-80">
+<span class="w-10 h-1 bg-red-600 skew-x-[-20deg]"></span>
+<p class="body-font text-blue-400 font-bold text-sm tracking-widest uppercase">Project Overview</p>
+</div>
+<h1 class="racing-font text-6xl text-white font-bold italic tracking-tighter skew-title">
+                    INTRO<span class="text-red-500">DUCTION</span>
+</h1>
+</div>
+<!-- Comparison Block 1: Traditional -->
+<div class="card-vs p-6 mb-6 rounded-r-lg">
+<div class="flex items-center gap-4 mb-3">
+<div class="w-10 h-10 rounded bg-gray-800 flex items-center justify-center border border-gray-600">
+<i class="fas fa-keyboard text-gray-400 text-lg"></i>
+</div>
+<h3 class="racing-font text-2xl text-gray-400">TRADITIONAL CONTROLS</h3>
+</div>
+<p class="body-font text-gray-400 text-sm leading-relaxed font-medium">
+                    Relies on physical hardware like keyboards, gamepads, or steering wheels. Creates a barrier to immersion and restricts natural movement.
+                </p>
+</div>
+<!-- Comparison Block 2: DriveSense -->
+<div class="card-vs active p-6 mb-8 rounded-r-lg relative overflow-hidden">
+<!-- Highlight Glow effect -->
+<div class="absolute top-0 right-0 w-24 h-full bg-blue-500 opacity-5 skew-x-[-20deg]"></div>
+<div class="flex items-center gap-4 mb-3">
+<div class="w-10 h-10 rounded bg-blue-600 flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+<i class="fas fa-hand-paper text-white text-lg"></i>
+</div>
+<h3 class="racing-font text-2xl text-white">DRIVESENSE APPROACH</h3>
+</div>
+<p class="body-font text-gray-100 text-sm leading-relaxed font-medium">
+                    Utilizes <span class="text-blue-400">computer vision</span> to track hand gestures in real-time. Turns your physical movements into direct game inputs for a truly hands-free experience.
+                </p>
+</div>
+<!-- Key Benefit Tag -->
+<div class="flex items-center gap-6 border-t border-gray-800 pt-6 mt-auto">
+<div>
+<p class="racing-font text-4xl text-white italic">IMMERSIVE <span class="text-transparent" style="-webkit-text-stroke: 1px #EF4444;">RACING</span></p>
+<p class="body-font text-xs text-gray-500 tracking-wider uppercase mt-1">Next Generation Control</p>
+</div>
+<div class="w-16 h-16 rounded-full border-2 border-gray-700 flex items-center justify-center bg-black bg-opacity-50">
+<i class="fas fa-gamepad text-2xl text-gray-600 relative">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-[120%] h-1 bg-red-600 transform -rotate-45"></div>
+</div>
+</i>
+</div>
+</div>
+</div>
+<!-- Decorative Right Side Elements (HUD style) -->
+<div class="absolute right-10 top-10 flex flex-col items-end gap-2 opacity-90">
+<div class="h-2 w-32 bg-red-600 skew-x-[-20deg]"></div>
+<div class="h-2 w-20 bg-white skew-x-[-20deg]"></div>
+<div class="h-2 w-10 bg-blue-600 skew-x-[-20deg]"></div>
+</div>
+<!-- Bottom Right Tech Info -->
+<div class="absolute bottom-10 right-10 text-right">
+<p class="racing-font text-[150px] leading-none text-white opacity-5 select-none font-black italic">VS</p>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

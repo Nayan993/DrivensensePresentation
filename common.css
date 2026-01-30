@@ -1,0 +1,24 @@
+/* Fullscreen wrapper */
+.slide-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+/* Fixed design resolution */
+.slide-container {
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  position: relative;
+  transform-origin: center center;
+}
+
+/* Prevent scroll */
+body {
+  margin: 0;
+  overflow: hidden;
+}

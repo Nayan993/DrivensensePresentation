@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Key Features - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Oswald:wght@500;700&family=Roboto:wght@400;500;900&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://www.genspark.ai/image_placeholder.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Feature Strip Styles */
+        .feature-strip {
+            background-color: rgba(15, 23, 42, 0.9);
+            border-left-width: 6px;
+            border-style: solid;
+            transform: skewX(-10deg);
+            margin-left: -20px;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .feature-strip:hover {
+            background-color: rgba(30, 41, 59, 0.95);
+            transform: skewX(-10deg) translateX(10px);
+        }
+
+        .unskew {
+            transform: skewX(10deg);
+        }
+
+        /* Hexagon Icon Background */
+        .hex-icon {
+            width: 56px;
+            height: 56px;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        /* Speed Lines overlay */
+        .speed-lines-overlay {
+            background-color: transparent;
+            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* Responsive font sizes - made smaller */
+        .title-main {
+            font-size: clamp(32px, 5vw, 60px);
+        }
+        
+        .section-label {
+            font-size: clamp(8px, 0.8vw, 11px);
+        }
+        
+        .feature-title {
+            font-size: clamp(16px, 2vw, 26px);
+        }
+        
+        .feature-text {
+            font-size: clamp(10px, 0.95vw, 12px);
+            line-height: 1.4;
+        }
+        
+        .footer-title {
+            font-size: clamp(12px, 1.2vw, 16px);
+        }
+        
+        .page-number {
+            font-size: clamp(24px, 3.5vw, 42px);
+        }
+        
+        @media (max-width: 768px) {
+            .feature-strip {
+                transform: skewX(0deg) !important;
+                margin-left: 0 !important;
+                padding-left: 1rem !important;
+            }
+            
+            .feature-strip:hover {
+                transform: skewX(0deg) !important;
+            }
+            
+            .unskew {
+                transform: skewX(0deg) !important;
+            }
+            
+            .hex-icon {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .right-hud {
+                display: none;
+            }
+            
+            .chevron-indicator {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex flex-col relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="absolute inset-0 bg-black bg-opacity-70"></div>
+<div class="absolute inset-0 speed-lines-overlay pointer-events-none"></div>
+<!-- Content Layout -->
+<div class="relative z-10 w-full h-full flex flex-col px-6 md:px-16 py-6 md:py-10">
+<!-- Header -->
+<div class="mb-4 md:mb-8 border-b border-gray-700 pb-2 md:pb-3 flex flex-col md:flex-row justify-between md:items-end gap-2 md:gap-0">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-6 md:w-8 h-1 bg-blue-500 skew-x-[-20deg]"></span>
+<p class="tech-font text-gray-400 font-bold section-label tracking-[0.3em] uppercase">System Capabilities</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter">
+                        KEY <span class="text-transparent" style="-webkit-text-stroke: 1px #3B82F6;">FEATURES</span>
+</h1>
+</div>
+<!-- HUD Decor Top Right -->
+<div class="flex flex-col md:items-end opacity-70">
+<div class="flex gap-1 mb-1">
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+<div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+<div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+</div>
+<p class="tech-font text-white section-label font-mono">MODE: ACTIVE</p>
+</div>
+</div>
+<!-- Features Container -->
+<div class="flex-1 flex flex-col justify-center gap-3 md:gap-5 pr-0 md:pr-20 overflow-y-auto">
+<!-- Feature 1: Hand Steering -->
+<div class="feature-strip w-full max-w-4xl p-3 md:p-5 border-blue-500 group flex items-center gap-3 md:gap-6">
+<div class="unskew shrink-0">
+<div class="hex-icon border-blue-500/50 group-hover:border-blue-400 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+<i class="fas fa-hand-paper text-lg md:text-xl text-blue-400"></i>
+</div>
+</div>
+<div class="unskew flex-1 min-w-0">
+<h3 class="racing-font feature-title text-white italic mb-1">REAL-TIME HAND STEERING</h3>
+<p class="tech-font text-gray-300 feature-text font-medium">
+                            Advanced computer vision maps natural hand tilts to precise steering inputs instantly. Drive naturally without touching any physical device.
+                        </p>
+</div>
+<div class="chevron-indicator unskew opacity-20 group-hover:opacity-100 transition-opacity hidden md:block shrink-0">
+<i class="fas fa-chevron-right text-xl md:text-2xl text-blue-500"></i>
+</div>
+</div>
+<!-- Feature 2: Controller Free -->
+<div class="feature-strip w-full max-w-4xl p-3 md:p-5 border-red-500 group flex items-center gap-3 md:gap-6 ml-0 md:ml-8">
+<div class="unskew shrink-0">
+<div class="hex-icon border-red-500/50 group-hover:border-red-400 group-hover:shadow-[0_0_15px_rgba(239,68,68,0.4)]">
+<i class="fas fa-microchip text-lg md:text-xl text-red-500"></i>
+</div>
+</div>
+<div class="unskew flex-1 min-w-0">
+<h3 class="racing-font feature-title text-white italic mb-1">CONTROLLER-FREE RACING</h3>
+<p class="tech-font text-gray-300 feature-text font-medium">
+                            Complete immersion using only a standard webcam. Eliminate the barrier of expensive steering wheels or gamepads for a true hands-free experience.
+                        </p>
+</div>
+<div class="chevron-indicator unskew opacity-20 group-hover:opacity-100 transition-opacity hidden md:block shrink-0">
+<i class="fas fa-chevron-right text-xl md:text-2xl text-red-500"></i>
+</div>
+</div>
+<!-- Feature 3: Auto Pause -->
+<div class="feature-strip w-full max-w-4xl p-3 md:p-5 border-yellow-500 group flex items-center gap-3 md:gap-6 ml-0 md:ml-16">
+<div class="unskew shrink-0">
+<div class="hex-icon border-yellow-500/50 group-hover:border-yellow-400 group-hover:shadow-[0_0_15px_rgba(234,179,8,0.4)]">
+<i class="fas fa-shield-alt text-lg md:text-xl text-yellow-400"></i>
+</div>
+</div>
+<div class="unskew flex-1 min-w-0">
+<h3 class="racing-font feature-title text-white italic mb-1">AUTO-SLOW SAFETY SYSTEM</h3>
+<p class="tech-font text-gray-300 feature-text font-medium">
+                            Intelligent fail-safe mechanism that automatically Slows the car the moment hands leave the camera frame, ensuring seamless interruptions.
+                        </p>
+</div>
+<div class="chevron-indicator unskew opacity-20 group-hover:opacity-100 transition-opacity hidden md:block shrink-0">
+<i class="fas fa-chevron-right text-xl md:text-2xl text-yellow-500"></i>
+</div>
+</div>
+</div>
+<!-- Footer Stats / Decor -->
+<div class="mt-auto flex justify-between items-end border-t border-gray-800 pt-2 md:pt-3 opacity-60">
+<div class="flex gap-4 md:gap-8">
+<div>
+<p class="tech-font section-label text-gray-500 uppercase">Input Method</p>
+<p class="racing-font footer-title text-white">WEBCAM CV</p>
+</div>
+<div>
+<p class="tech-font section-label text-gray-500 uppercase">Latency</p>
+<p class="racing-font footer-title text-white">&lt; 50ms</p>
+</div>
+</div>
+<div class="racing-font page-number text-gray-800 font-black italic select-none">
+                    11
+                </div>
+</div>
+</div>
+<!-- Right Side HUD Element -->
+<div class="right-hud absolute right-0 top-1/2 transform -translate-y-1/2 w-16 md:w-20 h-48 md:h-80 border-l border-gray-800 bg-black/40 flex flex-col items-center justify-between py-4 md:py-6 z-20">
+<div class="w-1 h-12 md:h-16 bg-gray-700 rounded-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-full bg-blue-500 opacity-80"></div>
+</div>
+<div class="w-1 h-12 md:h-16 bg-gray-700 rounded-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-2/3 bg-red-500 opacity-80"></div>
+</div>
+<div class="w-1 h-12 md:h-16 bg-gray-700 rounded-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full h-1/2 bg-yellow-500 opacity-80"></div>
+</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>

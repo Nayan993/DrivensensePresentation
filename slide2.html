@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gameplay Demo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,900&family=Oswald:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/ef8477cc3ac1d57f1f2f79772cdb9e03.webp");
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .tech-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Custom UI Elements */
+        .video-frame {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            background-color: #111;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+            max-width: 90vw;
+            width: 800px;
+            aspect-ratio: 16/9;
+        }
+        
+        .corner-bracket {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #3B82F6;
+            z-index: 20;
+        }
+        .cb-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .cb-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; border-color: #EF4444; }
+        .cb-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; border-color: #EF4444; }
+        .cb-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+        .skew-box {
+            transform: skewX(-20deg);
+        }
+        .unskew {
+            transform: skewX(20deg);
+        }
+
+        .stripe-pattern {
+            background-color: rgba(20, 20, 20, 0.9);
+        }
+        
+        /* Video Styles */
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(36px, 6vw, 72px);
+        }
+        
+        .title-demo {
+            font-size: clamp(32px, 5.5vw, 64px);
+        }
+        
+        .feature-title {
+            font-size: clamp(16px, 1.8vw, 24px);
+        }
+        
+        .feature-subtitle {
+            font-size: clamp(10px, 0.9vw, 14px);
+        }
+        
+        .label-text {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        @media (max-width: 768px) {
+            .feature-boxes {
+                flex-direction: column;
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex flex-col">
+<!-- Background -->
+<div class="absolute inset-0 bg-image opacity-60"></div>
+<div class="absolute inset-0 bg-black bg-opacity-80"></div>
+<!-- Decorative Speed Lines -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-blue-900 opacity-10 skew-x-[-20deg] transform origin-top-right"></div>
+<div class="absolute bottom-0 left-0 w-1/3 h-full bg-red-900 opacity-10 skew-x-[-20deg] transform origin-bottom-left"></div>
+<!-- Header -->
+<div class="relative z-10 w-full pt-6 md:pt-10 px-8 md:px-16 flex justify-center items-center">
+<div class="text-center">
+<div class="flex items-center justify-center gap-2 mb-2">
+<span class="w-6 md:w-8 h-1 bg-red-600"></span>
+<p class="tech-font text-blue-400 font-bold label-text tracking-widest uppercase">DriveSense v1.0</p>
+<span class="w-6 md:w-8 h-1 bg-blue-600"></span>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter">
+                    GAMEPLAY <span class="title-demo text-transparent" style="-webkit-text-stroke: 1px #fff;">DEMO</span>
+</h1>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 relative z-10 flex flex-col justify-center items-center p-4 md:p-8">
+<!-- Video Frame -->
+<div class="video-frame flex justify-center items-center relative mb-6 md:mb-8">
+<!-- Corner Brackets -->
+<div class="corner-bracket cb-tl"></div>
+<div class="corner-bracket cb-tr"></div>
+<div class="corner-bracket cb-bl"></div>
+<div class="corner-bracket cb-br"></div>
+<!-- Video Element -->
+<div class="w-full h-full bg-gray-900 flex flex-col justify-center items-center relative overflow-hidden">
+<!-- Replace this src with your actual video file path -->
+<video id="gameplayVideo" controls>
+<source src="your-video-file.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+<!-- HUD Elements Overlay -->
+<div class="absolute bottom-2 md:bottom-4 left-2 md:left-4 flex gap-2 md:gap-4 text-xs font-mono text-blue-400 pointer-events-none">
+<p>SPD: 128 KM/H</p>
+<p>GEAR: 4</p>
+</div>
+<div class="absolute top-2 md:top-4 right-2 md:right-4 text-xs font-mono text-red-500 pointer-events-none">
+<p>INPUT: HAND_TILT</p>
+</div>
+</div>
+</div>
+<!-- Lower Text Information -->
+<div class="flex gap-4 md:gap-8 items-center feature-boxes flex-wrap justify-center">
+<!-- Feature 1 -->
+<div class="skew-box bg-blue-600 px-4 md:px-8 py-3 md:py-4 border-r-4 border-white shadow-lg">
+<div class="unskew flex items-center gap-2 md:gap-4">
+<i class="fas fa-hand-sparkles text-white text-xl md:text-2xl"></i>
+<div>
+<p class="racing-font text-white feature-title font-bold uppercase">Real-time Control</p>
+<p class="tech-font text-blue-100 feature-subtitle font-medium">Hand Gesture Driving</p>
+</div>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="skew-box bg-red-600 px-4 md:px-8 py-3 md:py-4 border-l-4 border-white shadow-lg">
+<div class="unskew flex items-center gap-2 md:gap-4">
+<div class="text-right">
+<p class="racing-font text-white feature-title font-bold uppercase">Controller Free</p>
+<p class="tech-font text-red-100 feature-subtitle font-medium">No Keyboard Required</p>
+</div>
+<i class="fas fa-gamepad text-white text-xl md:text-2xl opacity-50 relative">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-full h-1 bg-white transform rotate-45"></div>
+</div>
+</i>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Bottom Strip -->
+<div class="absolute bottom-0 w-full h-2 bg-gray-800 flex">
+<div class="w-1/4 h-full bg-blue-600"></div>
+<div class="w-1/4 h-full bg-white"></div>
+<div class="w-1/4 h-full bg-red-600"></div>
+<div class="w-1/4 h-full bg-black"></div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    // Don't interfere with video controls
+    const video = document.getElementById('gameplayVideo');
+    const isVideoFocused = document.activeElement === video;
+    
+    if (!isVideoFocused) {
+      if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+        window.location.href = `slide${currentSlide + 1}.html`;
+      }
+      if (e.key === "ArrowLeft" && currentSlide > 1) {
+        window.location.href = `slide${currentSlide - 1}.html`;
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

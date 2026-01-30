@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500;900&amp;family=Orbitron:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://page.gensparksite.com/slides_images/de81f43d63abb6243aa9bead5e6fc6bf.webp");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+        }
+        .racing-font { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .tech-font { font-family: 'Montserrat', sans-serif; }
+        .digital-font { font-family: 'Orbitron', sans-serif; }
+
+        /* Custom Checkered Pattern Strip */
+        .checkered-strip {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 40px;
+        }
+
+        /* HUD Frame */
+        .hud-frame {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: #3B82F6;
+            border-style: solid;
+        }
+        .tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+        .tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+        .bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+        .br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+
+        /* Glow Text */
+        .glow-text {
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(40px, 7vw, 84px);
+        }
+        
+        .section-label {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        .summary-title {
+            font-size: clamp(18px, 2.2vw, 28px);
+        }
+        
+        .summary-text {
+            font-size: clamp(14px, 1.5vw, 18px);
+        }
+        
+        .stat-number {
+            font-size: clamp(24px, 3vw, 36px);
+        }
+        
+        .stat-label {
+            font-size: clamp(9px, 0.9vw, 12px);
+        }
+        
+        .flag-icon {
+            font-size: clamp(48px, 6vw, 72px);
+        }
+        
+        @media (max-width: 768px) {
+            .hud-frame {
+                transform: skewX(0deg) !important;
+            }
+            
+            .hud-frame > div {
+                transform: skewX(0deg) !important;
+            }
+            
+            .checkered-strip {
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex flex-col items-center justify-center overflow-y-auto">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="absolute inset-0 bg-black bg-opacity-70"></div>
+<!-- Decorative Top Strip -->
+<div class="absolute top-0 w-full flex flex-col z-0">
+<div class="w-full h-2 bg-blue-600"></div>
+<div class="checkered-strip opacity-30">
+<!-- Row 1 -->
+<div class="flex w-full">
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+</div>
+<!-- Row 2 (Shifted) -->
+<div class="flex w-full">
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="relative z-10 text-center flex flex-col items-center px-4 md:px-8 py-8 md:py-0">
+<!-- Flag Icon -->
+<div class="mb-6 md:mb-8 relative">
+<i class="fas fa-flag-checkered text-6xl md:text-8xl text-white opacity-20 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 scale-150"></i>
+<i class="fas fa-flag-checkered flag-icon text-blue-500 relative z-10 glow-text"></i>
+</div>
+<h2 class="tech-font text-blue-400 font-bold tracking-[0.3em] md:tracking-[0.5em] section-label mb-3 md:mb-4 uppercase">Project Conclusion</h2>
+<h1 class="racing-font title-main text-white font-bold italic mb-4 md:mb-6 leading-tight">
+                THE <span class="text-transparent" style="-webkit-text-stroke: 2px #fff;">FINISH LINE</span>
+</h1>
+<!-- Summary Box -->
+<div class="hud-frame p-6 md:p-10 max-w-3xl mx-auto transform md:-skew-x-6 w-full">
+<!-- Corners -->
+<div class="corner tl"></div><div class="corner tr"></div>
+<div class="corner bl"></div><div class="corner br"></div>
+<div class="transform md:skew-x-6">
+<p class="tech-font summary-title text-white font-medium mb-3 md:mb-4">
+                        DriveSense merges <span class="text-blue-400 font-bold">Computer Vision</span> and <span class="text-red-500 font-bold">Racing Gameplay</span>.
+                    </p>
+<div class="w-16 md:w-24 h-1 bg-white mx-auto my-4 md:my-6 opacity-30"></div>
+<p class="tech-font text-gray-300 summary-text">
+                        Delivering an immersive, controller-free experience that defines the next generation of accessible gaming.
+                    </p>
+</div>
+</div>
+<!-- Stats Row -->
+<div class="flex flex-col md:flex-row gap-8 md:gap-16 mt-8 md:mt-12 opacity-80">
+<div class="text-center">
+<p class="digital-font stat-number text-blue-400 font-bold">100%</p>
+<p class="tech-font text-gray-400 stat-label mt-1 uppercase">Hands-Free</p>
+</div>
+<div class="text-center">
+<p class="digital-font stat-number text-green-400 font-bold">60 FPS</p>
+<p class="tech-font text-gray-400 stat-label mt-1 uppercase">Real-Time</p>
+</div>
+<div class="text-center">
+<p class="digital-font stat-number text-red-400 font-bold">0 HW</p>
+<p class="tech-font text-gray-400 stat-label mt-1 uppercase">No Controllers</p>
+</div>
+</div>
+</div>
+<!-- Bottom Checkered Strip -->
+<div class="absolute bottom-0 w-full flex flex-col rotate-180 z-0">
+<div class="checkered-strip opacity-30">
+<!-- Row 1 -->
+<div class="flex w-full">
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+<div class="w-10 h-4 bg-white"></div><div class="w-10 h-4 bg-black"></div>
+</div>
+<!-- Row 2 -->
+<div class="flex w-full">
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+<div class="w-10 h-4 bg-black"></div><div class="w-10 h-4 bg-white"></div>
+</div>
+</div>
+<div class="w-full h-2 bg-red-600"></div>
+</div>
+</div>
+</body>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="stylesheet" href="common.css">
+
+<title>Project Objective - DriveSense</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;family=Oswald:wght@500;700&amp;family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+        .bg-image {
+            background-image: url("https://www.genspark.ai/image_placeholder.png");
+            background-size: cover;
+            background-position: center;
+        }
+        .racing-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .body-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* UI Components */
+        .glass-panel {
+            background-color: rgba(10, 10, 10, 0.94);
+            border-right: 4px solid #3B82F6;
+            clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+        }
+        
+        .objective-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid #EF4444;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .objective-card:hover {
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+
+        .skew-title {
+            transform: skewX(-15deg);
+        }
+        
+        .speed-line {
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+        }
+        .speed-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 30%;
+            background-color: #3B82F6;
+        }
+        
+        /* Responsive font sizes */
+        .title-main {
+            font-size: clamp(40px, 6vw, 72px);
+        }
+        
+        .section-label {
+            font-size: clamp(10px, 1vw, 14px);
+        }
+        
+        .card-title {
+            font-size: clamp(16px, 1.8vw, 24px);
+        }
+        
+        .card-text {
+            font-size: clamp(12px, 1.1vw, 16px);
+        }
+        
+        .bottom-title {
+            font-size: clamp(24px, 3.5vw, 36px);
+        }
+        
+        .target-label {
+            font-size: clamp(10px, 0.9vw, 12px);
+        }
+        
+        @media (max-width: 768px) {
+            .glass-panel {
+                width: 100% !important;
+                clip-path: none;
+                border-right: none;
+                border-bottom: 4px solid #3B82F6;
+            }
+            
+            .decorative-right, .target-reticle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black m-0 p-0">
+<div class="slide-container flex relative">
+<!-- Background -->
+<div class="absolute inset-0 bg-image"></div>
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<!-- Left Overlay Content -->
+<div class="relative z-10 w-full md:w-[680px] lg:w-[53vw] h-full glass-panel pl-8 md:pl-16 pr-8 md:pr-24 py-8 md:py-12 flex flex-col justify-center shadow-2xl">
+<!-- Section Title -->
+<div class="mb-6 md:mb-8">
+<div class="flex items-center gap-3 mb-2 opacity-80">
+<span class="w-8 md:w-10 h-1 bg-blue-500 skew-x-[-20deg]"></span>
+<p class="body-font text-red-500 font-bold section-label tracking-widest uppercase">DriveSense Goals</p>
+</div>
+<h1 class="racing-font title-main text-white font-bold italic tracking-tighter skew-title leading-tight">
+                    PROJECT <br/><span class="text-blue-500">OBJECTIVE</span>
+</h1>
+</div>
+<!-- Objective 1 -->
+<div class="objective-card p-4 md:p-5 mb-3 md:mb-4 rounded-r-lg">
+<div class="flex items-start gap-3 md:gap-4">
+<div class="mt-1 w-7 h-7 md:w-8 md:h-8 rounded bg-red-600 flex items-center justify-center shrink-0 shadow-lg">
+<i class="fas fa-gamepad text-white text-xs md:text-sm"></i>
+</div>
+<div>
+<h3 class="racing-font card-title text-white mb-1">GESTURE-CONTROLLED GAME</h3>
+<p class="body-font text-gray-300 card-text leading-relaxed font-medium">
+                        Build a fully functional car racing game that replaces traditional physical controllers with intuitive hand gestures captured via webcam.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Objective 2 -->
+<div class="objective-card p-4 md:p-5 mb-3 md:mb-4 rounded-r-lg" style="border-left-color: #3B82F6;">
+<div class="flex items-start gap-3 md:gap-4">
+<div class="mt-1 w-7 h-7 md:w-8 md:h-8 rounded bg-blue-600 flex items-center justify-center shrink-0 shadow-lg">
+<i class="fas fa-tachometer-alt text-white text-xs md:text-sm"></i>
+</div>
+<div>
+<h3 class="racing-font card-title text-white mb-1">SMOOTH CONTROL</h3>
+<p class="body-font text-gray-300 card-text leading-relaxed font-medium">
+                        Achieve fluid steering and acceleration mechanics by implementing advanced smoothing algorithms to handle raw gesture data.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Objective 3 -->
+<div class="objective-card p-4 md:p-5 mb-3 md:mb-4 rounded-r-lg" style="border-left-color: #10B981;">
+<div class="flex items-start gap-3 md:gap-4">
+<div class="mt-1 w-7 h-7 md:w-8 md:h-8 rounded bg-emerald-500 flex items-center justify-center shrink-0 shadow-lg">
+<i class="fas fa-bolt text-white text-xs md:text-sm"></i>
+</div>
+<div>
+<h3 class="racing-font card-title text-white mb-1">REAL-TIME RESPONSIVENESS</h3>
+<p class="body-font text-gray-300 card-text leading-relaxed font-medium">
+                        Ensure low-latency processing where computer vision detection and game physics update instantly for a seamless arcade experience.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Bottom Stats/Tag -->
+<div class="flex items-center gap-4 md:gap-6 mt-auto pt-3 md:pt-4 border-t border-gray-800">
+<div class="flex flex-col">
+<p class="racing-font bottom-title text-white italic">ZERO <span class="text-transparent" style="-webkit-text-stroke: 1px #3B82F6;">LATENCY</span></p>
+<div class="speed-line"></div>
+</div>
+</div>
+</div>
+<!-- Decorative Right Side Elements (HUD style) -->
+<div class="decorative-right absolute right-6 md:right-10 top-6 md:top-10 flex flex-col items-end gap-2 opacity-90">
+<div class="h-2 w-24 md:w-32 bg-blue-600 skew-x-[-20deg]"></div>
+<div class="h-2 w-16 md:w-20 bg-white skew-x-[-20deg]"></div>
+<div class="h-2 w-8 md:w-10 bg-red-600 skew-x-[-20deg]"></div>
+</div>
+<!-- Target Reticle Overlay -->
+<div class="target-reticle absolute bottom-12 md:bottom-20 right-12 md:right-20 w-24 h-24 md:w-32 md:h-32 border border-blue-500/30 rounded-full flex items-center justify-center">
+<div class="w-20 h-20 md:w-24 md:h-24 border border-red-500/20 rounded-full animate-pulse"></div>
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-2 text-blue-400 target-label racing-font">TARGET</div>
+</div>
+</div>
+<script>
+  const totalSlides = 18;
+  const currentSlide = parseInt(
+    window.location.pathname.match(/slide(\d+)/)?.[1]
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+      window.location.href = `slide${currentSlide + 1}.html`;
+    }
+    if (e.key === "ArrowLeft" && currentSlide > 1) {
+      window.location.href = `slide${currentSlide - 1}.html`;
+    }
+  });
+</script>
+
+</body>
+</html>
